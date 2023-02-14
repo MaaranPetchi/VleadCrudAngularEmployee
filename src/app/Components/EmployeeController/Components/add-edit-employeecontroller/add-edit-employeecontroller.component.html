@@ -1,8 +1,9 @@
+<div class="formsize">
 <form [formGroup]="Empregister" (ngSubmit)="HandleSubmit()">
     <mat-stepper [linear]="isLinear" #stepper>
 
         <mat-step [stepControl]="Basicform">
-            <div class="container">
+            <div class="formemployee">
                 <div formGroupName="basic">
                     <ng-template matStepLabel>Fill Basic Details</ng-template>
                     <!--1ST ROW-->
@@ -10,13 +11,13 @@
                         <div class="col">
                             <mat-form-field appearance="fill">
                                 <mat-label>EmployeeCode</mat-label>
-                                <input matInput placeholder="EmployeeCode" formControlName="EmployeeCode">
+                                <input matInput placeholder="EmployeeCode" ngDefaultControl formControlName="EmployeeCode">
                             </mat-form-field>
                         </div>
                         <div class="col">
                             <mat-form-field class="left" appearance="fill">
                                 <mat-label>EmployeeName</mat-label>
-                                <input matInput placeholder="EmployeeName" formControlName="EmployeeName">
+                                <input matInput placeholder="EmployeeName" ngDefaultControl  formControlName="EmployeeName">
                             </mat-form-field>
                         </div>
                     </div>
@@ -25,7 +26,7 @@
                         <div class="col">
                             <mat-form-field>
                                 <mat-label>Department</mat-label>
-                                <mat-select formControlName="Department" [(value)]="selecteddepartmentOption">
+                                <mat-select ngDefaultControl  formControlName="Department" [(value)]="selecteddepartmentOption">
                                     <mat-option *ngFor="let departmentdropdownvalues of Departmentdropdownvalues"
                                         [value]="departmentdropdownvalues.value">
                                         {{ departmentdropdownvalues.name }}
@@ -36,7 +37,7 @@
                         <div class="col">
                             <mat-form-field appearance="fill">
                                 <mat-label>Date of Birth</mat-label>
-                                <input formControlName="DOB" matInput [matDatepicker]="picker">
+                                <input ngDefaultControl formControlName="DOB" matInput [matDatepicker]="picker">
                                 <mat-hint>MM/DD/YYYY</mat-hint>
                                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
@@ -48,7 +49,7 @@
                         <div class="col">
                             <mat-form-field appearance="fill">
                                 <mat-label>Date of Joining</mat-label>
-                                <input formControlName="DOJ" matInput [matDatepicker]="DOJ">
+                                <input ngDefaultControl formControlName="DOJ" matInput [matDatepicker]="DOJ">
                                 <mat-hint>MM/DD/YYYY</mat-hint>
                                 <mat-datepicker-toggle matIconSuffix [for]="DOJ"></mat-datepicker-toggle>
                                 <mat-datepicker #DOJ></mat-datepicker>
@@ -57,7 +58,7 @@
                         <div class="col">
                             <mat-form-field appearance="fill">
                                 <mat-label>Martial Status</mat-label>
-                                <mat-select formControlName="martialstatus">
+                                <mat-select ngDefaultControl  formControlName="martialstatus">
                                     <mat-option *ngFor="let martial of martials" [value]="martial.value">
                                         {{martial.viewValue}}
                                     </mat-option>
@@ -70,7 +71,7 @@
                         <div class="col">
                             <mat-form-field appearance="fill">
                                 <mat-label>Date of Resignation</mat-label>
-                                <input formControlName="DOR" matInput [matDatepicker]="DOR">
+                                <input ngDefaultControl  formControlName="DOR" matInput [matDatepicker]="DOR">
                                 <mat-hint>MM/DD/YYYY</mat-hint>
                                 <mat-datepicker-toggle matIconSuffix [for]="DOR"></mat-datepicker-toggle>
                                 <mat-datepicker #DOR></mat-datepicker>
@@ -79,7 +80,7 @@
                         <div class="col">
                             <mat-form-field appearance="fill">
                                 <mat-label>Resign Reasons</mat-label>
-                                <mat-select formControlName="ResignReasons">
+                                <mat-select ngDefaultControl  formControlName="ResignReasons">
                                     <mat-option *ngFor="let resign of resigns" [value]="resign.resignvalue">
                                         {{resign.resignViewValue}}
                                     </mat-option>
@@ -92,7 +93,7 @@
                         <div class="col">
                             <mat-form-field appearance="fill">
                                 <mat-label>Gender</mat-label>
-                                <mat-select formControlName="Gender">
+                                <mat-select ngDefaultControl formControlName="Gender">
                                     <mat-option *ngFor="let gender of genders" [value]="gender.gendervalue">
                                         {{gender.genderViewValue}}
                                     </mat-option>
@@ -102,7 +103,7 @@
                         <div class="col">
                             <mat-form-field>
                                 <mat-label>Destination</mat-label>
-                                <mat-select formControlName="Destination">
+                                <mat-select ngDefaultControl formControlName="Destination">
                                     <mat-option *ngFor="let destinationoption of destinationoptions"
                                         [value]="destinationoption.value">
                                         {{ destinationoption.label }}
@@ -116,24 +117,25 @@
                         <div class="col">
                             <mat-form-field appearance="fill">
                                 <mat-label>Blood Group</mat-label>
-                                <mat-select formControlName="BloodGroup">
+                                <mat-select ngDefaultControl  formControlName="BloodGroup">
                                     <mat-option *ngFor="let blood of bloods" [value]="blood.bloodvalue">
                                         {{blood.bloodViewValue}}
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
-                        <!-- <div class="col">
-                            <mat-checkbox name="" ngDefaultControl [(ngModel)]="isChecked">Is out of
+                        <div class="col">
+                            
+                            <mat-checkbox name="" ngDefaultControl formControlName="ischecked">Is out of
                                 source</mat-checkbox>
-                        </div> -->
+                        </div>
                     </div>
                     <!--7th row-->
                     <div class="row">
                         <div class="col">
                             <mat-form-field appearance="fill">
                                 <mat-label>Is Internet Available</mat-label>
-                                <mat-select formControlName="Internet">
+                                <mat-select ngDefaultControl  formControlName="Internet">
                                     <mat-option *ngFor="let internet of internets" [value]="internet.internetvalue">
                                         {{internet.internetViewValue}}
                                     </mat-option>
@@ -146,7 +148,7 @@
                         <div class="col">
                             <mat-form-field appearance="fill">
                                 <mat-label>System/Laptop Available</mat-label>
-                                <mat-select formControlName="system">
+                                <mat-select ngDefaultControl  formControlName="system">
                                     <mat-option *ngFor="let system of systems" [value]="system.systemvalue">
                                         {{system.systemViewValue}}
                                     </mat-option>
@@ -168,7 +170,7 @@
                     <div class="col">
                         <mat-form-field>
                             <mat-label>Reporting Manager 1</mat-label>
-                            <mat-select formControlName="ReportingManager1" [(value)]="selectedmanger1Value">
+                            <mat-select ngDefaultControl formControlName="ReportingManager1" [(value)]="selectedmanger1Value">
                                 <mat-option *ngFor="let rm1option of rm1options" [value]="rm1option.value">
                                     {{ rm1option.name }}
                                 </mat-option>
@@ -178,7 +180,7 @@
                     <div class="col">
                         <mat-form-field>
                             <mat-label>Reporting Leader 1</mat-label>
-                            <mat-select formControlName="ReportingLeader1" [(value)]="selectedleader1Value">
+                            <mat-select ngDefaultControl formControlName="ReportingLeader1" [(value)]="selectedleader1Value">
                                 <mat-option *ngFor="let rl1option of rl1options" [value]="rl1option.value">
                                     {{ rl1option.name }}
                                 </mat-option>
@@ -191,7 +193,7 @@
                     <div class="col">
                         <mat-form-field>
                             <mat-label>Reporting Manager 2</mat-label>
-                            <mat-select formControlName="ReportingManager2"  [(value)]="selectedmanger2Value">
+                            <mat-select ngDefaultControl formControlName="ReportingManager2"  [(value)]="selectedmanger2Value">
                                 <mat-option *ngFor="let rm2option of rm2options" [value]="rm2option.value">
                                     {{ rm2option.name }}
                                 </mat-option>
@@ -201,7 +203,7 @@
                     <div class="col">
                         <mat-form-field>
                             <mat-label>Reporting Leader 2</mat-label>
-                            <mat-select formControlName="ReportingLeader2" [(value)]="selectedleader2Value">
+                            <mat-select ngDefaultControl  formControlName="ReportingLeader2" [(value)]="selectedleader2Value">
                                 <mat-option *ngFor="let rl2option of rl2options" [value]="rl2option.value">
                                     {{ rl2option.name }}
                                 </mat-option>
@@ -214,7 +216,7 @@
                     <div class="col">
                         <mat-form-field>
                             <mat-label>Proficiency</mat-label>
-                            <mat-select formControlName="Proficiency">
+                            <mat-select ngDefaultControl formControlName="Proficiency">
                                 <mat-option *ngFor="let proficiencyoption of proficiencyoptions"
                                     [value]="proficiencyoption.value">
                                     {{ proficiencyoption.label }}
@@ -225,7 +227,7 @@
                     <div class="col">
                         <mat-form-field>
                             <mat-label>EmployeeHierachy</mat-label>
-                            <mat-select formControlName="EmployeeHierachy" [formControl]="selectControl" multiple>
+                            <mat-select ngDefaultControl formControlName="EmployeeHierachy" [formControl]="selectControl" multiple>
                                 <mat-option *ngFor="let employeehierarchyoption of EmployeeHierarchyOptions"
                                     [value]="employeehierarchyoption.value">
                                     {{ employeehierarchyoption.label }}
@@ -257,13 +259,13 @@
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>Address1</mat-label>
-                            <input matInput placeholder="Address1" formControlName="presentaddress1">
+                            <input matInput placeholder="Address1" ngDefaultControl formControlName="presentaddress1">
                         </mat-form-field>
                     </div>
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>Address1</mat-label>
-                            <input matInput placeholder="Address1" formControlName="permanentaddress1">
+                            <input matInput placeholder="Address1" ngDefaultControl  formControlName="permanentaddress1">
                         </mat-form-field>
                     </div>
 
@@ -274,13 +276,13 @@
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>Address2</mat-label>
-                            <input matInput placeholder="Address2" formControlName="presentaddress2">
+                            <input matInput placeholder="Address2" ngDefaultControl  formControlName="presentaddress2">
                         </mat-form-field>
                     </div>
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>Address2</mat-label>
-                            <input matInput placeholder="Address2" formControlName="permanentaddress2">
+                            <input matInput placeholder="Address2" ngDefaultControl  formControlName="permanentaddress2">
                         </mat-form-field>
                     </div>
 
@@ -291,13 +293,13 @@
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>Address3</mat-label>
-                            <input matInput placeholder="Address3" formControlName="presentaddress3">
+                            <input matInput placeholder="Address3" ngDefaultControl  formControlName="presentaddress3">
                         </mat-form-field>
                     </div>
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>Address3</mat-label>
-                            <input matInput placeholder="Address1" formControlName="permanentaddress3">
+                            <input matInput placeholder="Address3" ngDefaultControl formControlName="permanentaddress3">
                         </mat-form-field>
                     </div>
 
@@ -315,13 +317,13 @@
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>Phone number</mat-label>
-                            <input matInput placeholder="phn no" formControlName="phonenum">
+                            <input matInput placeholder="phn no" ngDefaultControl formControlName="phonenum">
                         </mat-form-field>
                     </div>
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>MobileNumber</mat-label>
-                            <input matInput placeholder="mob no" formControlName="MobileNumber">
+                            <input matInput placeholder="mob no" ngDefaultControl formControlName="MobileNumber">
                         </mat-form-field>
                     </div>
 
@@ -331,13 +333,13 @@
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>Emergency Contact Name</mat-label>
-                            <input matInput placeholder="Name" formControlName="EmergencyContactName">
+                            <input matInput placeholder="Emergency contact Name" ngDefaultControl formControlName="EmergencyContactName">
                         </mat-form-field>
                     </div>
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>Emergency Mobile number</mat-label>
-                            <input matInput placeholder="mob no" formControlName="EmergencyMobilenumber">
+                            <input matInput placeholder="mob no" ngDefaultControl  formControlName="EmergencyMobilenumber">
                         </mat-form-field>
                     </div>
 
@@ -347,13 +349,13 @@
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>Official Email Address</mat-label>
-                            <input matInput placeholder="Name" formControlName="officialemailaddress">
+                            <input matInput placeholder="official email address" ngDefaultControl  formControlName="officialemailaddress">
                         </mat-form-field>
                     </div>
                     <div class="col">
                         <mat-form-field>
                             <mat-label>EmployeeProcess</mat-label>
-                            <mat-select formControlName="EmployeeProcess" [formControl]="selectEmployeeprocessControl" multiple>
+                            <mat-select ngDefaultControl formControlName="EmployeeProcess" [formControl]="selectEmployeeprocessControl" multiple>
                                 <mat-option *ngFor="let employeeprocessoption of employeeprocessOptions"
                                     [value]="employeeprocessoption.value">
                                     {{ employeeprocessoption.label }}
@@ -369,7 +371,7 @@
                     <div class="col">
                         <mat-form-field>
                             <mat-label>EmployeeRoles</mat-label>
-                            <mat-select formControlName="EmployeeRoles">
+                            <mat-select ngDefaultControl  formControlName="EmployeeRoles">
                                 <mat-option *ngFor="let EmployeeRolesoption of EmployeeRolesoptions"
                                     [value]="EmployeeRolesoption.value">
                                     {{ EmployeeRolesoption.label }}
@@ -380,7 +382,7 @@
                     <div class="col">
                         <mat-form-field appearance="fill">
                             <mat-label>Personal Email Address</mat-label>
-                            <input matInput placeholder="email" formControlName="PersonalEmail">
+                            <input matInput placeholder="email" ngDefaultControl  formControlName="PersonalEmail">
                         </mat-form-field>
                     </div>
                     </div>
@@ -394,3 +396,4 @@
 
     </mat-stepper>
 </form>
+</div>

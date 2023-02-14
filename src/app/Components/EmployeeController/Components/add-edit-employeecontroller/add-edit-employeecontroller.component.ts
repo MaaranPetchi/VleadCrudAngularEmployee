@@ -37,7 +37,8 @@ interface SYSTEM {
 @Component({
   selector: 'app-add-edit-employeecontroller',
   templateUrl: './add-edit-employeecontroller.component.html',
-  styleUrls: ['./add-edit-employeecontroller.component.scss']
+  styleUrls: ['./add-edit-employeecontroller.component.scss'],
+  
 })
 export class AddEditEmployeecontrollerComponent implements OnInit {
   //Reporting Manager 1
@@ -199,7 +200,7 @@ export class AddEditEmployeecontrollerComponent implements OnInit {
       BloodGroup: this.builder.control('', Validators.required),
       Internet: this.builder.control('', Validators.required),
       system: this.builder.control('', Validators.required),
-      checkbox: this.builder.control('', Validators.required),
+      ischecked: this.builder.control('', Validators.required),
 
     }),
     contact: this.builder.group({

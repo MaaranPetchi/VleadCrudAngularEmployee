@@ -1,19 +1,6 @@
-.mat-form-field{
-    width: 100%;
-}
-
-
-.leftinputfield{
-    left: 178px;
-}
-
-
-form.ng-untouched.ng-pristine.ng-invalid {
-    height: 660px;
-    width: 865px;
-}
-
-.mat-mdc-dialog-container .mdc-dialog__surface {
-    border-radius: var(--mdc-dialog-container-shape, var(--mdc-shape-medium, 5px));
-    height: 734px;
+.formsize {
+    overflow: scroll;
+    padding: 0 24px 24px 24px;
+    height: 487px;
+    width: 611px;
 }
